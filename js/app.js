@@ -460,7 +460,7 @@ const questionStart = (targetQuiz) => {
 
   // Add Event Listner for next Button To Visible new Quesion
   const nextButton = targetQuiz.querySelector(".question__next p");
-  nextButton.addEventListener("click", () => {
+  const nextQuestionRender = () => {
     if (isWrite === undefined && timing !== 0) {
       const answerContainer = targetQuiz.querySelector(".answer__container");
       answerContainer.classList.add("drag");
@@ -468,7 +468,12 @@ const questionStart = (targetQuiz) => {
       return;
     }
     nextQuestion(targetQuiz);
+  };
+  window.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    nextQuestionRender();
   });
+  nextButton.addEventListener("click", nextQuestionRender);
 };
 
 // ***************************
