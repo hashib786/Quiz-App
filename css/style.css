@@ -456,3 +456,31 @@ Quiz Result
 .quiz__result footer {
     margin-top: 2.8rem;
 }
+
+.answer__container.drag {
+    animation: draging .3s ease-in-out 1;
+}
+
+
+/* Additional Feature If not selected option it click next then draging answer container */
+@keyframes draging {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(75px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    75% {
+        transform: translateX(-75px);
+    }
+
+    75% {
+        transform: translateX(0);
+    }
+}
